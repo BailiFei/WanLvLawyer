@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_title"
+    android:layout_width="wrap_content"
+    android:layout_height="22dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/kf_selector_select_my_labels"
+    android:gravity="center"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:text="宅男"
+    android:maxLines="1"
+    android:textColor="@drawable/kf_selector_firstmine_text_color"
+    android:textSize="12sp">
+
+</TextView>

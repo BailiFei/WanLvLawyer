@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/setting" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="225dp"
+        android:layout_height="250dp"
+        android:visibility="visible"
+        android:background="@drawable/kf_main_background" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/good_7moor"
+        android:textColor="#222222"
+        android:textSize="22sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/im_sdk_kf"
+        android:textColor="#626465"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/video_voice_text"
+        android:textColor="#626465"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/all_not_string"
+        android:textColor="#626465"
+        android:textSize="16sp" />
+
+    <Button
+
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/kf_icon_main_button"
+        android:text="@string/contact_im"
+        android:textColor="#3ABEFF"
+        android:textSize="16sp" />
+
+</LinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/frame_layout"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc" />
+    <com.lawyer.view.ManualRadioGroup
+        android:layout_width="match_parent"
+        android:id="@+id/radio_group"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <ink.itwo.common.widget.ExtendRadioButton
+            android:id="@+id/radio_bidding"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="@string/home_rd_bidding"
+            android:textColor="@drawable/tc_home_radio"
+            android:textSize="@dimen/sp_10"
+            app:drawableHeight="@dimen/dp_21"
+            app:drawableTop="@drawable/ic_home_bidding"
+            app:drawableWidth="@dimen/dp_23" />
+
+        <ink.itwo.common.widget.ExtendRadioButton
+            android:id="@+id/radio_advisory"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="@string/home_rd_advisory"
+            android:textColor="@drawable/tc_home_radio"
+            android:textSize="@dimen/sp_10"
+            app:drawableHeight="@dimen/dp_22"
+            app:drawableTop="@drawable/ic_home_advisory"
+            app:drawableWidth="@dimen/dp_24" />
+
+        <ink.itwo.common.widget.ExtendRadioButton
+            android:id="@+id/radio_case"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="@string/home_rd_case"
+            android:textColor="@drawable/tc_home_radio"
+            android:textSize="@dimen/sp_10"
+            app:drawableHeight="@dimen/dp_22"
+            app:drawableTop="@drawable/ic_home_case"
+            app:drawableWidth="@dimen/dp_21" />
+
+        <ink.itwo.common.widget.ExtendRadioButton
+            android:id="@+id/radio_video"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="@string/home_rd_video"
+            android:textColor="@drawable/tc_home_radio"
+            android:textSize="@dimen/sp_10"
+            app:drawableHeight="@dimen/dp_23"
+            app:drawableTop="@drawable/ic_home_video"
+            app:drawableWidth="@dimen/dp_23" />
+
+        <ink.itwo.common.widget.ExtendRadioButton
+            android:id="@+id/radio_welfare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:visibility="gone"
+            android:paddingTop="@dimen/dp_5"
+            android:text="@string/home_rd_charitable"
+            android:textColor="@drawable/tc_home_radio"
+            android:textSize="@dimen/sp_10"
+            app:drawableHeight="@dimen/dp_22"
+            app:drawableTop="@drawable/ic_home_charitable"
+            app:drawableWidth="@dimen/dp_24" />
+
+        <ink.itwo.common.widget.ExtendRadioButton
+            android:id="@+id/radio_user"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="@string/home_rd_user"
+            android:textColor="@drawable/tc_home_radio"
+            android:textSize="@dimen/sp_10"
+            app:drawableHeight="@dimen/dp_23"
+            app:drawableTop="@drawable/ic_home_user"
+            app:drawableWidth="@dimen/dp_18" />
+
+    </com.lawyer.view.ManualRadioGroup>
+</LinearLayout>

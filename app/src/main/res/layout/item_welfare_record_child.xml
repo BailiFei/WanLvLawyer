@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.lawyer.entity.WelfareRecordBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!-- 152****6502 -->
+        <TextView
+            android:id="@+id/tv_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff45494b"
+            android:textSize="@dimen/sp_14"
+            android:text="@{bean.mobileText}"
+            tools:text="@string/app_name" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/donation"
+            android:textColor="#ffa3a3a3"
+            android:textSize="14sp" />
+        <!-- 150.00元 -->
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFA200"
+            android:text="@{bean.moneyText}"
+            android:textSize="14sp"
+            tools:text="@string/app_name" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <!-- 1小时前 -->
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{bean.timeText}"
+            android:textColor="#ffa3a3a3"
+            android:textSize="@dimen/sp_14"
+            tools:text="@string/app_name" />
+    </LinearLayout>
+</layout>

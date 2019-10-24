@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <android.support.design.widget.ExtendTabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/sp_10"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:background="@color/white"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="0dp"
+        app:tabIndicatorWidth="0dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#45494B"
+        app:tabTextColor="#A3A3A3" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:id="@+id/refresh_layout"
+        android:layout_height="match_parent">
+
+        <!-- item_case_entrust -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

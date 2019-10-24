@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.lawyer.entity.UserCaseBeanExt"/>
+
+        <import type="android.view.View"/>
+        <import type="com.lawyer.enums.PayStateEnum"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_156"
+        android:background="@drawable/bg_white_radius_5"
+        android:elevation="@dimen/dp_2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- circle -->
+            <ImageView
+                android:id="@+id/iv_head"
+                circleCrop="@{true}"
+                url="@{bean.avatarUrl}"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                tools:src="@mipmap/ic_launcher"/>
+            <!-- 浙江省 杭州市 -->
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:maxWidth="@dimen/dp_100"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_9"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{bean.cityStr}"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_12"
+                tools:text="@string/dg_member_hint_des"
+            />
+
+            <TextView
+                android:id="@+id/tv_tag"
+                android:layout_width="@dimen/dp_54"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginStart="@dimen/dp_14"
+                android:background="@drawable/bg_green_stoke_radius_2"
+                android:gravity="center"
+                android:text="@{bean.caseTypeName}"
+                android:textColor="#ff16aa47"
+                android:textSize="@dimen/sp_10"
+                tools:text="@string/app_name"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <!-- 待支付5000元 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/lawyer_user_unpaid,String.valueOf(bean.needPayMoney))}"
+                android:textColor="#ffffa200"
+                android:textSize="@dimen/sp_14"
+                tools:visibility="gone"
+                android:visibility="@{bean.currentPosition==1 &amp;&amp; bean.payState== PayStateEnum.unpaid?View.VISIBLE:View.GONE}"
+                tools:text="待支付500000元"/>
+
+            <!-- 已付清 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/case_payed"
+                android:textColor="#ff16aa47"
+                android:textSize="@dimen/sp_14"
+                android:visibility="@{bean.currentPosition==1 &amp;&amp; bean.payState==PayStateEnum.paid?View.VISIBLE:View.GONE}"
+                tools:visibility="visible"/>
+            <!-- 等待指派 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lawyer_user_bidding"
+                android:textColor="#ff16aa47"
+                android:textSize="@dimen/sp_14"
+                android:visibility="@{bean.currentPosition==0?View.VISIBLE:View.GONE}"
+                tools:visibility="gone"/>
+            <!-- 已结束 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lawyer_user_end"
+                android:textColor="#ffc6c6c6"
+                android:textSize="@dimen/sp_14"
+                android:visibility="@{bean.currentPosition==2?View.VISIBLE:View.GONE}"
+                tools:visibility="gone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_22"
+            android:layout_marginTop="@dimen/dp_17"
+            android:orientation="horizontal">
+            <!-- #编号10293# -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/bidding_num,bean.id)}"
+                android:textColor="#16AA47"
+                android:textSize="@dimen/sp_15"
+                tools:text="@string/app_name"/>
+
+            <!-- 工资没拿到如何才能拿到？ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_12"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{bean.titleExt}"
+                android:textColor="#45494B"
+                android:textSize="@dimen/sp_15"
+                tools:text="@string/app_name"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:background="#F5F5F5"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                circleCrop="@{true}"
+                url="@{bean.lawyerAvatarUrl}"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                tools:src="@mipmap/ic_launcher"/>
+            <!-- 卓鹏律师 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_9"
+                android:text="@{bean.lawyerName}"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_14"
+                tools:text="@string/app_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:text="@{bean.mobileExt}"
+                android:textColor="#ffa3a3a3"
+                android:textSize="@dimen/sp_14"
+                tools:text="15268086502"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="@dimen/dp_65"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:background="@drawable/bg_green_b0e4c1_15"
+                android:gravity="center"
+                android:text="@string/user_lawyer_state_done"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/sp_15"
+                android:visibility="@{bean.currentPosition==0?View.VISIBLE:View.GONE}"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</layout>

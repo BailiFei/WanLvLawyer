@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:paddingBottom="150dp"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:paddingTop="120dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="18dp"
+            android:minHeight="45dp"
+            android:text="确认离开应用吗？"
+            android:textColor="@color/all_black"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/message_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minHeight="105dp"
+            android:paddingLeft="30dp"
+            android:text="系统监测到网络异常，你可能收不到客服消息，请退出重试~"
+            android:paddingRight="30dp"
+            android:textColor="@color/all_black"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="#ffd0d0d0" />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/twoButtonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/negativeButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:text="取消" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#ffd0d0d0" />
+
+            <TextView
+                android:id="@+id/positiveButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="确定" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/singleButtonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:visibility="visible">
+
+            <TextView
+                android:text="退出"
+                android:textColor="@color/lite_blue"
+                android:id="@+id/singleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="16sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

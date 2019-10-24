@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/kf_offlinedialog_et_bg"
+    android:layout_marginBottom="10dp"
+    >
+
+    <TextView
+        android:id="@+id/erp_field_data_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:maxEms="6"
+        android:ellipsize="end"
+        android:textSize="16sp"
+        android:text="@string/file_name"/>
+
+    <EditText
+        android:layout_toRightOf="@id/erp_field_data_tv_name"
+        android:id="@+id/erp_field_data_et_value"
+        android:singleLine="true"
+        android:background="@null"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="18sp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

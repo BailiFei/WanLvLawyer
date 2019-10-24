@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lawyer.controller.main.vm.LawyerViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5F5"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_290">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_25">
+
+                <ImageView
+                    android:id="@+id/iv_set"
+                    android:layout_width="@dimen/dp_45"
+                    android:layout_height="@dimen/dp_45"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ic_user_set" />
+
+                <ImageView
+                    android:layout_width="@dimen/dp_45"
+                    android:id="@+id/iv_message"
+                    android:layout_height="@dimen/dp_45"
+                    android:layout_alignParentEnd="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ic_user_message" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_user_title_bg" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_72"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <!-- circle -->
+                <ink.itwo.alioss.upIv.OSSCircleImageView
+                    android:layout_width="75dp"
+                    url="@{vm.user.avatarUrlStr}"
+                    android:id="@+id/iv_head"
+                    android:layout_height="75dp"
+                    tools:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_18"
+                    android:drawableStart="@mipmap/ic_user_level"
+                    android:drawablePadding="@dimen/dp_7"
+                    android:textColor="#ff45494b"
+                    android:text="@{vm.user.nickName}"
+                    android:textSize="@dimen/sp_19"
+                    tools:text="15268086502" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/user_balance"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_17"
+                        android:text="@{String.valueOf(vm.user.money)}"
+                        tools:text="3280.00" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_2"
+                        android:text="@string/rmb"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_12" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="@dimen/dp_60"
+                    android:layout_height="@dimen/dp_29"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:background="@drawable/bg_green_radius_2"
+                    android:gravity="center"
+                    android:id="@+id/tv_withdraw"
+                    android:onClick="@{vm.withdrawClick}"
+                    android:text="@string/user_withdraw"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <android.support.design.widget.ExtendTabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/sp_10"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:background="@color/white"
+            app:tabGravity="fill"
+            app:tabIndicatorHeight="0dp"
+            app:tabIndicatorWidth="0dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="#45494B"
+            app:tabTextColor="#A3A3A3" />
+
+        <!-- item_main_lawyer -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_12"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+    </LinearLayout>
+</layout>

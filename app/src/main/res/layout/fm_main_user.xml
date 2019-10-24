@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lawyer.controller.main.vm.UserViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_290"
+            android:background="#F5F5F5">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_25">
+
+                <ImageView
+                    android:onClick="@{vm.setClick}"
+                    android:layout_width="@dimen/dp_45"
+                    android:layout_height="@dimen/dp_45"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ic_user_set" />
+
+                <ImageView
+                    android:id="@+id/iv_message"
+                    android:layout_width="@dimen/dp_45"
+                    android:layout_height="@dimen/dp_45"
+                    android:layout_alignParentEnd="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ic_user_message" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_user_title_bg" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_72"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <!-- circle -->
+                <ink.itwo.alioss.upIv.OSSCircleImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    url="@{vm.user.avatarUrlStr}"
+                    android:id="@+id/iv_head"
+                    android:onClick="@{vm.headClick}"
+                    tools:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_18"
+                    android:drawableStart="@mipmap/ic_user_level"
+                    android:drawablePadding="@dimen/dp_7"
+                    android:textColor="#ff45494b"
+                    android:text="@{vm.user.nickName}"
+                    android:textSize="@dimen/sp_19"
+                    tools:text="15268086502" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/user_balance"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_17"
+                        android:text="@{String.valueOf(vm.user.money)}"
+                        tools:text="3280.00" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_2"
+                        android:text="@string/rmb"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:onClick="@{vm.topUpClick}"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_29"
+                        android:background="@drawable/bg_yellow_ffa200_radius_2"
+                        android:gravity="center"
+                        android:text="@string/user_recharge"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        android:onClick="@{vm.withdrawClick}"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_29"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:background="@drawable/bg_green_radius_2"
+                        android:gravity="center"
+                        android:text="@string/user_withdraw"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/sp_14" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_online"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_user_online"
+                android:drawablePadding="@dimen/dp_17"
+                android:gravity="center"
+                android:text="@string/user_service_online"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_user_phone"
+                android:drawablePadding="@dimen/dp_17"
+                android:gravity="center"
+                android:text="@string/user_service_phone"
+                android:textColor="#ff45494b"
+                android:id="@+id/tv_call"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_user_entrust"
+                android:drawablePadding="@dimen/dp_17"
+                android:gravity="center"
+                android:text="@string/user_service_entrust"
+                android:onClick="@{vm.entrustClick}"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_12" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_user_knowledge"
+                android:drawablePadding="@dimen/dp_17"
+                android:gravity="center"
+                android:text="@string/user_knowledge"
+                android:onClick="@{vm.knowClick}"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:onClick="@{vm.applyClick}"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_user_lawyer"
+                android:drawablePadding="@dimen/dp_17"
+                android:gravity="center"
+                android:text="@string/user_lawyer"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:onClick="@{vm.welfareClick}"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_user_welfare"
+                android:drawablePadding="@dimen/dp_17"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:text="@string/user_welfare"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_12" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_87"
+            android:layout_marginStart="@dimen/dp_17"
+            android:id="@+id/layout_mobile"
+            android:layout_marginEnd="@dimen/dp_17"
+            android:layout_marginBottom="@dimen/dp_17">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_user_service_phone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_25"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="@string/user_service_hint"
+                android:textColor="#ff16aa47"
+                android:textSize="@dimen/sp_15" />
+
+            <TextView
+                android:id="@+id/tv_service_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/dp_25"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_19"
+                tools:text="400-800-8888" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

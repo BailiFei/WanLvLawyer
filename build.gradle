@@ -1,0 +1,63 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+def log(message) {
+    StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace()
+    for (StackTraceElement element in stackTrace) {
+        if (element.fileName.toString().endsWith("build.gradle") && element.lineNumber != 27) {
+            def headMsg = element.fileName + ":" + element.lineNumber
+            logger.quiet("\n" + headMsg)
+            logger.quiet("---> " + message)
+            break
+        }
+    }
+}
+
+static def getConfig() {
+    Properties properties = new Properties()
+    File file = new File("local.properties")
+    properties.load(file.newDataInputStream())
+    return properties
+}
+
+ext {
+    config = getConfig()
+}
+
+def value(key) {
+    def v = config.get(key)
+    if (v == null) {
+        v = getProperties().get(key)
+    }
+    return v
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

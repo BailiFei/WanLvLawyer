@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFF4"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#F4F6F7"
+            >
+
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/close"
+                android:textColor="#0C6BFE"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/leavemsg"
+                android:textColor="@color/all_black"
+                android:textSize="18sp"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inviteLeavemsgTip"
+            tools:text="哈哈哈"
+            android:textSize="16sp"
+            android:padding="6dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/offline_ll_custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/id_et_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/kf_offlinedialog_et_bg"
+                android:gravity="top"
+                android:minLines="6"
+                android:maxLines="6"
+                android:padding="6dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/pleaseleavemsg"
+                />
+            <LinearLayout
+                android:id="@+id/offline_ll_custom_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/id_btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#0C6BFE"
+                android:text="@string/submit_leavemsg"
+                android:textColor="@color/all_white"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

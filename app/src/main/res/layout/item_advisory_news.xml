@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.lawyer.entity.CaseKnowledgeBean" />
+
+        <import type="ink.itwo.common.util.DateUtil" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/layout"
+        android:layout_height="@dimen/dp_70">
+        <!-- radius 6 -->
+        <ImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_100"
+            url="@{bean.picUrl}"
+            isRound="@{true}"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_12"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_toEndOf="@id/iv_cover"
+            android:background="@drawable/bg_green_stoke_radius_2"
+            android:gravity="center"
+            android:minWidth="@dimen/dp_54"
+            android:id="@+id/tv_tag"
+            android:text="@{bean.caseTypeName}"
+            android:minHeight="@dimen/dp_20"
+            android:textColor="#ff16aa47"
+            android:textSize="@dimen/sp_10"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:text='@{DateUtil.format(bean.createTime,"yyyy.MM.dd")}'
+            android:id="@+id/tv_time"
+            android:textColor="#ffcccccc"
+            android:textSize="@dimen/sp_12"
+            tools:text="2019.1.5" />
+        <!-- 注意2018年两会延迟退休最新消息！ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@{bean.title}"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_toEndOf="@id/iv_cover"
+            android:id="@+id/tv_title"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="#ff45494b"
+            android:textSize="15sp"
+            tools:text="@string/app_name" />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用主题色 -->
+    <color name="maincolor">#21b38a</color>
+    <color name="maincolordark">#129872</color>
+    <color name="sidebar_letter_normal">#202020</color>
+    <color name="sidebar_letter_pressed">#21b38a</color>
+    <!-- 白色 -->
+    <color name="all_white">#ffffff</color>
+ 	<!-- 黑色 -->
+    <color name="all_black">#000000</color>
+ 	<!-- 透明 -->
+    <color name="transparent">#00000000</color>
+ 	<!-- 浅灰 -->
+    <color name="lightgrey">#D6D6D6</color>
+    <color name="grey">#8B8989</color>
+    <color name="parent_dialog_bg">#EDEDED</color>
+    <color name="startcolor">#21b38a</color>
+    <color name="textcolor">#383838</color>
+    <color name="lite_blue">#ff359ff2</color>
+    <color name="robot_blue">#2256CB</color>
+    <color name="chatlist_bg">#f0f0f0</color>
+    <color name="tv_red">#ff6b6b</color>
+    
+    <color name="kf_tag_select">#F39300</color>
+    <color name="kf_tag_unselect">#666666</color>
+    <color name="kf_hint_view">#FAFAFA</color>
+    <color name="kf_line">#D9D9D9</color>
+
+
+</resources>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.lawyer.entity.CaseProgressBean" />
+
+        <import type="ink.itwo.common.util.DateUtil" />
+
+        <import type="com.lawyer.enums.PayStateEnum" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/dot"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_19"
+            android:layout_marginTop="@dimen/dp_3"
+            android:background="@drawable/dot_green_10" />
+
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_toEndOf="@id/dot"
+            android:text="@{DateUtil.format(bean.createTime,DateUtil.DATE_PATTERN)}"
+            android:textColor="#ffa3a3a3"
+            android:textSize="@dimen/sp_12"
+            tools:text="2018-11-4" />
+        <!-- 律师帮您抒写律师函，需支付1200元。 -->
+        <TextView
+            android:id="@+id/tv_des"
+            android:layout_width="@dimen/dp_179"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_time"
+            android:layout_alignStart="@id/tv_time"
+            android:layout_marginTop="@dimen/dp_9"
+            android:text="@{bean.content}"
+            android:textColor="#ff45494b"
+            android:textSize="@dimen/sp_15"
+            tools:text="@string/app_name" />
+        <!--
+         待支付1200元 #FFA200
+         已支付500元 #16AA47
+         -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_des"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp_19"
+            android:text="@{bean.paidStr}"
+            android:textColor="@{bean.payState==PayStateEnum.paid?@color/green_16AA47:@color/yellow}"
+            android:textSize="@dimen/sp_13"
+            tools:text="@string/app_name" />
+
+        <ink.itwo.common.widget.scroll.NestedGridView
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_des"
+            android:layout_alignStart="@id/tv_des"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_19"
+            android:horizontalSpacing="@dimen/dp_5"
+            android:numColumns="3"
+            android:verticalSpacing="@dimen/dp_5"
+            tools:listitem="@layout/item_image" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="1px"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/dp_106" />
+
+        <View
+            android:layout_width="@dimen/dp_2"
+            android:layout_height="match_parent"
+            android:layout_below="@id/dot"
+            android:layout_alignBottom="@id/view"
+            android:layout_marginStart="@dimen/dp_23"
+            android:layout_marginTop="@dimen/dp_3"
+            android:background="#B0E4C1" />
+
+        <View
+            android:layout_width="@dimen/dp_2"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view"
+            android:layout_alignBottom="@id/grid_view"
+            android:layout_marginStart="@dimen/dp_23"
+            android:background="#B0E4C1" />
+    </RelativeLayout>
+</layout>

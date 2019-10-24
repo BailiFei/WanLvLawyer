@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lawyer.controller.main.vm.AdvisoryViewModel"/>
+
+        <import type="com.lawyer.R"/>
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4F5F4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:id="@+id/layout_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_249"
+                    android:background="@color/gray_666"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
+
+                    <ink.itwo.common.widget.vp.BannerViewPager
+                        datas="@{vm.indexBean.banner}"
+                        indicatorId='@{@id/indicator}'
+                        app:interval="4000"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:loop="true"/>
+
+                    <ink.itwo.common.widget.vp.IndicatorView
+                        android:id="@+id/indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/dp_165"
+                        app:highlight_clr="@color/white"
+                        app:normal_clr="#45494B"
+                        app:radius="@dimen/dp_3"
+                        app:space="@dimen/dp_4"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_12"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:drawableStart="@mipmap/ic_location"
+                        android:drawablePadding="@dimen/dp_5"
+                        android:text="@{vm.cityName}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_17"
+                        tools:text="@string/app_name"/>
+                </RelativeLayout>
+                <!--
+                -->
+
+                <ink.itwo.common.widget.scroll.NestedGridView
+                    android:id="@+id/grid_view_case_type"
+                    simpleAdapter="@{vm.caseTypeAdapter}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_360"
+                    android:horizontalSpacing="@dimen/dp_2"
+                    android:numColumns="4"
+                    android:verticalSpacing="@dimen/dp_2"
+                    tools:listitem="@layout/item_advisory_case"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_vip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_188"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/layout_online"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_150"
+                        android:layout_marginStart="@dimen/dp_12"
+                        android:layout_marginBottom="@dimen/dp_5"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_white_radius_5"
+                        android:elevation="@dimen/dp_2"
+                        android:gravity="center"
+                        android:onClick="@{vm.onlineClick}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_advisory_consult"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="@string/advisory_consultation"
+                            android:textColor="#ff45494b"
+                            android:textSize="@dimen/sp_17"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_8"
+                            android:text="@string/advisory_hint_1"
+                            android:textColor="#ff16aa47"
+                            android:textSize="@dimen/sp_10"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_150"
+                        android:layout_marginStart="@dimen/dp_9"
+                        android:layout_marginEnd="@dimen/dp_12"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_white_radius_5"
+                        android:elevation="@dimen/dp_2"
+                        android:gravity="center"
+                        android:onClick="@{vm.callClick}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_advisory_telephone"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="@string/advisory_phone_consultation"
+                            android:textColor="#ff45494b"
+                            android:textSize="@dimen/sp_17"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_8"
+                            android:text="@string/advisory_hint_2"
+                            android:textColor="#ff16aa47"
+                            android:textSize="@dimen/sp_10"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_68"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="@dimen/dp_4"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_marginStart="@dimen/dp_12"
+                        android:background="@color/green_16AA47"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_9"
+                        android:text="@string/advisory_case"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_17"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="@dimen/dp_68"
+                        android:layout_height="@dimen/dp_68"
+                        android:gravity="center"
+                        android:onClick="@{vm.casesClick}"
+                        android:text="@string/more"
+                        android:textColor="#ff16aa47"
+                        android:textSize="@dimen/sp_15"/>
+                </LinearLayout>
+
+                <ink.itwo.common.widget.scroll.NestedListView
+                    simpleAdapter="@{vm.casesAdapter}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0dp"
+                    tools:listitem="@layout/item_advisory_case"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_68"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="@dimen/dp_4"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_marginStart="@dimen/dp_12"
+                        android:background="@color/green_16AA47"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_9"
+                        android:text="@string/advisory_knowledge"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_17"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="@dimen/dp_68"
+                        android:layout_height="@dimen/dp_68"
+                        android:gravity="center"
+                        android:onClick="@{vm.knowMoreClick}"
+                        android:text="@string/more"
+                        android:textColor="#ff16aa47"
+                        android:textSize="@dimen/sp_15"/>
+                </LinearLayout>
+                <!-- video_grid_view -->
+                <ink.itwo.common.widget.scroll.NestedGridView
+                    simpleAdapter="@{vm.videoViewAdapter}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_12"
+                    android:layout_marginEnd="@dimen/dp_12"
+                    android:horizontalSpacing="@dimen/dp_12"
+                    android:numColumns="2"
+                    android:verticalSpacing="@dimen/dp_12"
+                    tools:listitem="@layout/item_advisory_video"/>
+            </LinearLayout>
+            <!-- list_view_knowledge -->
+            <ink.itwo.common.widget.scroll.NestedListView
+                simpleAdapter="@{vm.knowledgeAdapter}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="@dimen/dp_30"
+                android:paddingTop="@dimen/dp_30"
+                android:paddingBottom="@dimen/dp_30"
+                tools:listitem="@layout/item_advisory_news"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:background="#5B5B61"
+                          android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_55"
+                    android:text="@string/advisory_hint_3"
+                    android:textColor="#A3A3A3"
+                    android:textSize="@dimen/sp_17"/>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_50"
+                    android:paddingEnd="@dimen/dp_50"
+                    android:paddingBottom="@dimen/dp_35">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/ic_advisory_bottom_1"
+                        android:drawablePadding="@dimen/dp_10"
+                        android:gravity="center"
+                        android:text="@string/advisory_hint_4"
+                        android:textColor="#C6C6C6"
+                        android:textSize="@dimen/sp_12"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/ic_advisory_bottom_2"
+                        android:drawablePadding="@dimen/dp_10"
+                        android:gravity="center"
+                        android:text="@string/advisory_hint_5"
+                        android:textColor="#ffc6c6c6"
+                        android:textSize="@dimen/sp_12"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/ic_advisory_bottom_3"
+                        android:drawablePadding="@dimen/dp_10"
+                        android:gravity="center"
+                        android:text="@string/advisory_hint_6"
+                        android:textColor="#ffc6c6c6"
+                        android:textSize="@dimen/sp_12"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/ic_advisory_bottom_4"
+                        android:drawablePadding="@dimen/dp_10"
+                        android:gravity="center"
+                        android:text="@string/advisory_hint_7"
+                        android:textColor="#ffc6c6c6"
+                        android:textSize="@dimen/sp_12"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</layout>

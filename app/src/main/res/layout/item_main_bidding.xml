@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.lawyer.entity.UserCaseBean" />
+
+        <import type="ink.itwo.common.util.DateUtil" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_156"
+        android:background="@drawable/bg_white_radius_5"
+        android:elevation="@dimen/dp_2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- circle -->
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                tools:src="@mipmap/ic_launcher" />
+            <!-- 浙江省 杭州市 -->
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_9"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_12"
+                android:text='@{(TextUtils.isEmpty(bean.provinceName)?"":bean.provinceName)+(TextUtils.isEmpty(bean.cityName)?"":bean.cityName)}'
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tv_tag"
+                android:layout_width="@dimen/dp_54"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginStart="@dimen/dp_14"
+                android:background="@drawable/bg_green_stoke_radius_2"
+                android:gravity="center"
+                android:text="@{bean.caseTypeName}"
+                android:textColor="#ff16aa47"
+                android:textSize="@dimen/sp_10"
+                tools:text="@string/app_name" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- 刚刚 -->
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffc6c6c6"
+                android:text="@{bean.timeText}"
+                android:textSize="@dimen/sp_14"
+                tools:text="@string/app_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_22"
+            android:layout_marginTop="@dimen/dp_17"
+            android:orientation="horizontal">
+            <!-- #编号10293# -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#16AA47"
+                android:text="@{String.format(@string/bidding_num,bean.id)}"
+                android:textSize="@dimen/sp_15"
+                tools:text="@string/app_name" />
+
+            <!-- 工资没拿到如何才能拿到？ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#45494B"
+                android:textSize="@dimen/sp_15"
+                android:layout_marginEnd="@dimen/dp_12"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{bean.title}"
+                tools:text="@string/app_name" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:background="#F5F5F5" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_bidding_count" />
+            <!-- 3310人 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/bidding_view_count,bean.viewcount)}"
+                android:layout_marginStart="@dimen/dp_12"
+                android:textColor="#A3A3A3"
+                android:textSize="@dimen/sp_14"
+                tools:text="3310" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green_16AA47"
+                android:text="@{String.valueOf(bean.tendercount)}"
+                android:textSize="@dimen/sp_17"
+                tools:text="32" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bidding_count"
+                android:textColor="#A3A3A3"
+                android:textSize="@dimen/sp_17" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!--
+          已投 user_lawyer_state_done  bg_green_b0e4c1_15
+          投标 bidding_bid  bg_green_16aa47_15
+             -->
+
+            <TextView
+                android:layout_width="@dimen/dp_65"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:gravity="center"
+                android:background="@{bean.biddingEnable?@drawable/bg_green_16aa47_15:@drawable/bg_green_b0e4c1_15}"
+                android:text="@{bean.biddingEnable?@string/bidding_bid:@string/user_lawyer_state_done}"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/sp_15" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</layout>

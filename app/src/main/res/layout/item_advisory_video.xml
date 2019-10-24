@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.lawyer.entity.VideoBean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout"
+        android:orientation="vertical">
+        <!-- radius 6 -->
+        <ImageView
+            android:id="@+id/image"
+            url="@{bean.picUrl}"
+            isRound="@{true}"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_112"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_15"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_87"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:background="@drawable/bg_black_45494b_70_radius_2"
+            android:gravity="center"
+            android:minWidth="@dimen/dp_40"
+            android:textColor="#fff5f5f5"
+            android:id="@+id/tv_time"
+            android:text="@{bean.duration}"
+            android:textSize="@dimen/sp_12"
+            tools:text="23:50" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image"
+            android:text="@{bean.title}"
+            android:id="@+id/tv_title"
+            android:layout_alignStart="@id/image"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/dp_14"
+            android:textColor="#ff45494b"
+            android:textSize="@dimen/sp_15"
+            tools:text="@string/app_name" />
+    </RelativeLayout>
+</layout>

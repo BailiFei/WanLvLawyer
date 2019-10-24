@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.lawyer.entity.WelfareBean"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_172"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dp_12"
+        android:paddingEnd="@dimen/dp_12">
+        <!-- radius 6 -->
+        <ImageView
+            isRound="@{true}"
+            url="@{bean.picture}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_welfare_bg"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_gradient_transparent_black70"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="@dimen/dp_244"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_15"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{bean.title}"
+            android:textColor="#fffefefe"
+            android:textSize="@dimen/sp_17"
+            tools:text="@string/app_name"/>
+
+        <View
+            android:id="@+id/dot"
+            android:layout_width="@dimen/dp_9"
+            android:layout_height="@dimen/dp_9"
+            android:layout_below="@id/tv_title"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_9"
+            android:background="@drawable/bg_yellow_ffa200_15"/>
+
+        <com.lawyer.view.DisTouchSeekBar
+            android:layout_width="@dimen/dp_224"
+            android:layout_height="@dimen/dp_3"
+            android:layout_below="@id/tv_title"
+            android:layout_alignStart="@id/dot"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_12"
+            android:max="100"
+            android:maxHeight="@dimen/dp_3"
+            android:minHeight="@dimen/dp_3"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="@{bean.percent}"
+            android:progressDrawable="@drawable/bg_seek_welfare"
+            android:thumb="@null"/>
+
+        <TextView
+            android:id="@+id/tv_hint_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dot"
+            android:layout_alignStart="@id/dot"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/welfare_already"
+            android:textColor="#fff5f5f5"
+            android:textSize="@dimen/sp_10"/>
+        <TextView
+            android:id="@+id/tv_num_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_hint_1"
+            android:layout_alignStart="@id/tv_hint_1"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="@{bean.moneyStr}"
+            android:textColor="#fffefefe"
+            android:textSize="@dimen/sp_14"
+            tools:text="0"
+        />
+
+        <TextView
+            android:id="@+id/tv_unit_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_num_1"
+            android:layout_toEndOf="@id/tv_num_1"
+            android:text="@string/rmb"
+            android:textColor="#fff5f5f5"
+            android:textSize="@dimen/sp_10"/>
+        <View
+            android:id="@+id/line"
+            android:layout_width="1px"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_hint_1"
+            android:layout_alignBottom="@id/tv_num_1"
+            android:layout_marginStart="@dimen/dp_113"
+            android:background="#C6C6C6"/>
+
+        <TextView
+            android:id="@+id/tv_hint_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_hint_1"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_toEndOf="@id/line"
+            android:text="@string/welfare_target"
+            android:textColor="#fff5f5f5"
+            android:textSize="@dimen/sp_10"/>
+
+        <TextView
+            android:id="@+id/tv_num_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_num_1"
+            android:layout_alignStart="@id/tv_hint_2"
+            android:text="@{bean.targetMoneyStr}"
+            android:textColor="#fffefefe"
+            android:textSize="@dimen/sp_14"
+            tools:text="1,000,000.00"/>
+
+        <TextView
+            android:id="@+id/tv_unit_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_num_1"
+            android:layout_toEndOf="@id/tv_num_2"
+            android:text="@string/rmb"
+            android:textColor="#fff5f5f5"
+            android:textSize="@dimen/sp_10"/>
+
+        <TextView
+            android:id="@+id/to_pay"
+            android:layout_width="@dimen/dp_75"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:background="@drawable/bg_not_white_radius_15"
+            android:gravity="center"
+            android:text="@string/welfare_to_donate"
+            android:textColor="#fffefefe"
+            android:textSize="@dimen/sp_13"/>
+    </RelativeLayout>
+</layout>

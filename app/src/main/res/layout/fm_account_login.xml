@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lawyer.controller.account.vm.LoginViewModel"/>
+
+        <import type="android.text.TextUtils"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/dp_30"
+            android:onClick="@{vm.closeClick}"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_close_black"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"/>
+        <ImageView
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_15"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_login_hint"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginStart="@dimen/dp_63"
+            android:layout_marginTop="@dimen/dp_50"
+            android:layout_marginEnd="@dimen/dp_63"
+            android:background="@drawable/bg_line_login_input"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/account_input_mobile"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="11"
+                android:paddingStart="@dimen/dp_5"
+                android:text="@={vm.mobileNo}"
+                android:textColor="#ff212226"
+                android:textCursorDrawable="@drawable/bg_et_cursor"
+                android:textSize="@dimen/sp_15"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:onClick="@{vm.mobileClearClick}"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_close_circle_gray"
+                android:visibility="@{TextUtils.isEmpty(vm.mobileNo)?View.GONE:View.VISIBLE}"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginStart="@dimen/dp_63"
+            android:layout_marginEnd="@dimen/dp_63"
+            android:background="@drawable/bg_line_login_input"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/account_input_password_2"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:paddingStart="@dimen/dp_5"
+                android:text="@={vm.password}"
+                android:textColor="#ff212226"
+                android:textCursorDrawable="@drawable/bg_et_cursor"
+                android:textSize="@dimen/sp_15"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:onClick="@{vm.passwordClearClick}"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_close_circle_gray"
+                android:visibility="@{TextUtils.isEmpty(vm.password)?View.GONE:View.VISIBLE}"/>
+
+            <ink.itwo.common.widget.ExtendCheckBox
+                android:id="@+id/check_box"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                app:drawableCentre="@drawable/bg_hide"
+                app:drawableHeight="@dimen/dp_14"
+                app:drawableWidth="@dimen/dp_22"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginStart="@dimen/dp_63"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_63"
+            android:background="@drawable/bg_btn_green_radius_22"
+            android:gravity="center"
+            android:onClick="@{vm.loginClick}"
+            android:text="@string/account_login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_17"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/dp_63"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_63"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{vm.registerClick}"
+                android:text="@string/account_regi"
+                android:textColor="#ff16aa47"
+                android:textSize="@dimen/sp_12"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{vm.forgetClick}"
+                android:text="@string/account_forget"
+                android:textColor="#ff16aa47"
+                android:textSize="@dimen/sp_12"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.lawyer.entity.WelfareProgressBean" />
+
+        <import type="ink.itwo.common.util.DateUtil" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{DateUtil.format(bean.createTime,DateUtil.DATE_PATTERN)}"
+            android:textColor="#ffa3a3a3"
+            android:textSize="@dimen/sp_12"
+            tools:text="2018-12-10" />
+        <!-- 瞳爱救助中心12月项目进展 -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:textColor="#ff45494b"
+            android:text="@{bean.name}"
+            android:textSize="@dimen/sp_17"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tv_des"
+            android:layout_width="wrap_content"
+            android:text="@{bean.description}"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_14"
+            android:textColor="#ff45494b"
+            android:textSize="@dimen/sp_15"
+            tools:text="@string/app_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_18"
+            android:background="#F5F5F5" />
+    </LinearLayout>
+</layout>

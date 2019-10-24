@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lawyer.controller.cases.vm.CasesDetailViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f5f5"
+        android:orientation="vertical">
+        <include layout="@layout/layout_title_bar" />
+        <WebView
+            webUrl="@{vm.webUrl}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:visibility="@{vm.isLawyerLayoutEnable?View.VISIBLE:View.GONE}"
+            android:background="#ECF8F0"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <!-- circle -->
+            <ImageView
+                android:layout_width="24dp"
+                url="@{vm.caseBean.lawyerAvatarUrl}"
+                circleCrop="@{true}"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/dp_22"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_9"
+                android:textColor="#ff45494b"
+                android:text="@{vm.caseBean.lawyerName}"
+                android:textSize="@dimen/sp_14"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:text="@{vm.caseBean.lawyerMobileNo}"
+                android:textColor="#ffa3a3a3"
+                android:textSize="@dimen/sp_14"
+                tools:text="15268086502" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_29"
+                android:textColor="#ff16aa47"
+                android:text="@{vm.caseBean.state.description}"
+                android:textSize="@dimen/sp_15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_1"
+            android:background="@color/white"
+            android:visibility="@{vm.caseBean.unpaid?View.VISIBLE:View.GONE}"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_22"
+                android:text="@string/unpaid"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_15" />
+            <!-- 5000元 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/money_format,String.valueOf(vm.caseBean.needPayMoney))}"
+                android:textColor="#FFA200"
+                android:textSize="@dimen/sp_15"
+                tools:text="5000" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_to_pay"
+                android:layout_width="@dimen/dp_165"
+                android:layout_height="@dimen/dp_34"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:background="@drawable/bg_yellow_ffa200_15"
+                android:gravity="center"
+                android:text="@string/to_pay"
+                android:onClick="@{vm.toPayClick}"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/sp_17" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:visibility="@{vm.isBiddingEnable?View.VISIBLE:View.GONE}"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_1"
+            android:background="@color/white">
+
+            <TextView
+                android:onClick="@{vm.biddingClick}"
+                android:layout_width="@dimen/dp_165"
+                android:layout_height="@dimen/dp_34"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_green_16aa47_15"
+                android:gravity="center"
+                android:text="@string/bidding_bid"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/sp_17" />
+        </FrameLayout>
+    </LinearLayout>
+</layout>

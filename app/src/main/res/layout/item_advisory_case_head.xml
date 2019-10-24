@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <!-- item_advisory_case_type -->
+    <ink.itwo.common.widget.scroll.NestedGridView
+        android:id="@+id/grid_view_case_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="@dimen/dp_2"
+        android:numColumns="4"
+        android:verticalSpacing="@dimen/dp_2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_68"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="@dimen/dp_4"
+            android:layout_height="@dimen/dp_18"
+            android:layout_marginStart="@dimen/dp_12"
+            android:background="@color/green_16AA47" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_9"
+            android:textColor="#ff45494b"
+            android:id="@+id/tv_case_type"
+            android:textSize="@dimen/sp_17"
+            tools:text="@string/case_classical" />
+    </LinearLayout>
+</LinearLayout>

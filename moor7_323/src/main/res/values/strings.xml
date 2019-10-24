@@ -1,0 +1,75 @@
+<resources>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="recorder_normal">按住 说话</string>
+    <string name="recorder_recording">松开 手指</string>
+    <string name="recorder_want_cancel">松开手指，取消发送</string>
+    <string name="investigate">请您对本次服务做出评价, 点击对应选项即可完成评价</string>
+    <string name="logout">注销</string>
+    <string name="topeople">转人工</string>
+    <string name="send">发送</string>
+    <string name="numbers01">当前咨询人数较多,你排在第</string>
+    <string name="number02">位</string>
+    <string name="good_7moor">好客服 用七陌</string>
+    <string name="im_sdk_kf">即时联系在线客服</string>
+    <string name="video_voice_text">视频、语音、文字、表情、图片、文件</string>
+    <string name="all_not_string">通通不是事儿！</string>
+    <string name="contact_im">联系客服</string>
+    <string name="name">姓名</string>
+    <string name="writedrown_msg">对方撤回了一条消息</string>
+    <string name="titlename">标题</string>
+    <string name="content">内容</string>
+    <string name="nohelp">没帮助</string>
+    <string name="yeshelp">有帮助</string>
+    <string name="close">关闭</string>
+    <string name="leavemsg">留言板</string>
+    <string name="pleaseleavemsg">请留言~</string>
+    <string name="submit_leavemsg">提交留言</string>
+    <string name="cancelsend">手指上滑 取消发送</string>
+    <string name="good">好评</string>
+    <string name="file_name">字段名</string>
+    <string name="very_satisfaction">非常满意</string>
+    <string name="satisfaction">满意</string>
+    <string name="not_satisfaction">不满意</string>
+    <string name="cancel">取消</string>
+    <string name="setting">设置</string>
+    <string name="complete">完成</string>
+    <string name="now_robit">当前是机器人为你服务</string>
+    <string name="other_writing">对方正在输入...</string>
+    <string name="people_not_online">当前客服不在线</string>
+    <string name="people_now">当前是客服为你服务</string>
+    <string name="people_isleave">客服结束会话</string>
+    <string name="chat_img">图库</string>
+    <string name="chat_evaluate">评价</string>
+    <string name="nothing_evaluate" translatable="false">评价列表为空</string>
+
+    <string name="chat_file">文件</string>
+    <string name="warm_prompt">温馨提示</string>
+    <string name="doyouneed">客服结束了会话，你想要</string>
+    <string name="continuecall">继续咨询</string>
+    <string name="back">退出</string>
+    <string name="doyouneedother">你的专属座席不在线，是否需要其它座席服务</string>
+    <string name="need">需要</string>
+    <string name="noneed">不需要</string>
+    <string name="topeoplesucceed">转人工服务成功</string>
+    <string name="sendfiletoobig">上传文件不能大于20MB</string>
+    <string name="seiveceforyou">为您服务</string>
+    <string name="receivepeopleaction">接收到人工干预</string>
+    <string name="iknow">我知道了</string>
+    <string name="thinks_01">很高兴为您解决了问题！</string>
+    <string name="thinks_02">非常抱歉没有解决您的问题！</string>
+    <string name="url_failure">链接不正确！</string>
+    <string name="evaluate_succeed">评价成功</string>
+    <string name="haddownload">已下载</string>
+    <string name="downloading">下载中...</string>
+    <string name="sended">已发送</string>
+    <string name="notpermession">权限不足！</string>
+    <string name="notnetwork">当前没有网络连接</string>
+    <string name="sorryconfigurationiswrong">对不起，由于在线咨询配置错误，暂时无法进行咨询...</string>
+    <string name="sdkinitwrong">客服初始化失败</string>
+    <string name="reading">加载中...</string>
+    <string name="peer_no_number">技能组无坐席</string>
+    <string name="satisfy_title" translatable="false">感谢您使用我们的服务，请为此次服务评价！</string>
+    <string name="satisfy_thank" translatable="false">感谢您对此次服务做出评价，祝您生活愉快，再见！</string>
+    <string name="wait_link">等待接入</string>
+</resources>

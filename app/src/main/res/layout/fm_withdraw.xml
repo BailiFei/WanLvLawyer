@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="vm" type="com.lawyer.controller.payment.WithdrawViewModel"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f5f5"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_title_bar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_1"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_23"
+                android:layout_marginTop="@dimen/dp_54"
+                android:text="@string/withdraw_money"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_15"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginEnd="@dimen/dp_24">
+
+                <TextView
+                    android:id="@+id/tv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:gravity="top"
+                    android:text="@string/rmb_unit"
+                    android:textColor="#ff16aa47"
+                    android:textSize="@dimen/sp_40"/>
+
+                <EditText
+                    android:id="@+id/edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBaseline="@id/tv_unit"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_toEndOf="@id/tv_unit"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:text="@={vm.amount}"
+                    android:textColor="#45494B"
+                    android:textCursorDrawable="@drawable/bg_et_cursor"
+                    android:textSize="@dimen/sp_40"
+                    tools:text="8000"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/green_16AA47"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_53"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginEnd="@dimen/dp_24"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <!-- 账户余额：8000.00元 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@{vm.balance}"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffa3a3a3"
+                    android:textSize="@dimen/sp_12"
+                    tools:text="@string/app_name"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minWidth="@dimen/dp_55"
+                    android:onClick="@{vm.clickAll}"
+                    android:text="@string/withdraw_all"
+                    android:textColor="#ff16aa47"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:layout_marginTop="@dimen/sp_10"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp_23"
+                        android:text="@string/account_real_name"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_15"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dp_105"
+                        android:layout_marginEnd="@dimen/dp_24"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="@string/input"
+                        android:imeOptions="actionNext"
+                        android:text="@={vm.name}"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="#45494B"
+                        android:textColorHint="#C6C6C6"
+                        android:textCursorDrawable="@drawable/bg_et_cursor"
+                        android:textSize="@dimen/sp_15"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:layout_marginTop="@dimen/sp_10"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp_23"
+                        android:text="身份证号"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_15"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dp_105"
+                        android:layout_marginEnd="@dimen/dp_24"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入您的身份证号"
+                        android:imeOptions="actionNext"
+                        android:text="@={vm.idCard}"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="#45494B"
+                        android:textColorHint="#C6C6C6"
+                        android:textCursorDrawable="@drawable/bg_et_cursor"
+                        android:textSize="@dimen/sp_15"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:layout_marginTop="@dimen/sp_10"
+                    android:background="@color/white"
+                >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp_23"
+                        android:text="银行卡号"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_15"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dp_105"
+                        android:layout_marginEnd="@dimen/dp_24"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入您的银行卡号"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberSigned"
+                        android:text="@={vm.cardNo}"
+                        android:maxLines="1"
+                        android:textColor="#45494B"
+                        android:textColorHint="#C6C6C6"
+                        android:textCursorDrawable="@drawable/bg_et_cursor"
+                        android:textSize="@dimen/sp_15"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_44"
+                    android:layout_marginTop="@dimen/sp_10"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp_23"
+                        android:text="手机号"
+                        android:textColor="#ff45494b"
+                        android:textSize="@dimen/sp_15"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dp_105"
+                        android:layout_marginEnd="@dimen/dp_24"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入您在银行预留的手机号"
+                        android:text="@={vm.mobile}"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="11"
+                        android:maxLines="1"
+                        android:textColor="#45494B"
+                        android:textColorHint="#C6C6C6"
+                        android:textCursorDrawable="@drawable/bg_et_cursor"
+                        android:textSize="@dimen/sp_15"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+        <!--
+        enable: bg_green_16aa47_radius_22
+        disenable:bg_green_b0e4c1_radius_22
+         -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:onClick="@{vm.confirmClick}"
+            android:layout_marginStart="@dimen/dp_28"
+            android:layout_marginEnd="@dimen/dp_28"
+            android:background="@drawable/bg_green_b0e4c1_radius_22"
+            android:gravity="center"
+            android:text="@string/withdraw_card_now"
+            android:textColor="#ffffffff"
+            android:textSize="17sp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</layout>

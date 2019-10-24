@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lawyer.controller.payment.TopUpViewModel" />
+
+        <import type="com.lawyer.enums.PayTypeEnum" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f5f5"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_title_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="@string/top_up_money"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_15" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginEnd="@dimen/dp_24"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_20">
+
+                <TextView
+                    android:id="@+id/tv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:gravity="top"
+                    android:text="@string/rmb_unit"
+                    android:textColor="#ff16aa47"
+                    android:textSize="@dimen/sp_40" />
+
+                <EditText
+                    android:id="@+id/edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBaseline="@id/tv_unit"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_toEndOf="@id/tv_unit"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:text="@={vm.money}"
+                    android:textColor="#45494B"
+                    android:textCursorDrawable="@drawable/bg_et_cursor"
+                    android:textSize="@dimen/sp_40"
+                    tools:text="8000" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/green_16AA47" />
+            </RelativeLayout>
+            <!-- 账户余额：0.00元 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_15"
+                android:textColor="#ffa3a3a3"
+                android:textSize="@dimen/sp_12"
+                tools:text="@string/user_balance" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_24"
+                android:text="@string/top_up_way"
+                android:textColor="#ff45494b"
+                android:textSize="@dimen/sp_15" />
+
+            <!-- android:onClick="@{vm.aliClick}"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/dp_18"
+                android:paddingStart="@dimen/dp_18"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_pay_ali" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_18"
+                    android:layout_weight="1"
+                    android:text="@string/pay_ali"
+                    android:textColor="#ff45494b"
+                    android:textSize="@dimen/sp_15" />
+
+                <CheckBox
+                    android:layout_width="@dimen/dp_22"
+                    android:layout_height="@dimen/dp_22"
+                    android:background="@drawable/bg_cb_green"
+                    android:button="@null"
+                    android:checked="@{vm.orderCreateBean.payType==PayTypeEnum.alipay}"
+                    android:clickable="false" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="@dimen/dp_67"
+                android:background="#C6C6C6"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:gravity="center_vertical"
+                android:onClick="@{vm.wechatClick}"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/dp_18"
+                android:paddingStart="@dimen/dp_18">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_pay_wechat" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_18"
+                    android:layout_weight="1"
+                    android:text="@string/pay_wechat"
+                    android:textColor="#ff45494b"
+                    android:textSize="@dimen/sp_15" />
+
+                <CheckBox
+                    android:layout_width="@dimen/dp_22"
+                    android:layout_height="@dimen/dp_22"
+                    android:background="@drawable/bg_cb_green"
+                    android:button="@null"
+                    android:checked="@{vm.orderCreateBean.payType==PayTypeEnum.wechatpayApp}"
+                    android:clickable="false" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="@dimen/dp_67"
+                android:background="#C6C6C6"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:gravity="center_vertical"
+                android:onClick="@{vm.unionClick}"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/dp_18"
+                android:paddingStart="@dimen/dp_18"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_pay_union" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_18"
+                    android:layout_weight="1"
+                    android:text="@string/pay_union"
+                    android:textColor="#ff45494b"
+                    android:textSize="@dimen/sp_15" />
+                <!--
+                                    android:checked="@{vm.orderCreateBean.payType==PayTypeEnum.unionpay}"
+                -->
+                <CheckBox
+                    android:layout_width="@dimen/dp_22"
+                    android:layout_height="@dimen/dp_22"
+                    android:background="@drawable/bg_cb_green"
+                    android:button="@null"
+                    android:checked="@{vm.orderCreateBean.payType==PayTypeEnum.unionpay}"
+                    android:clickable="false" />
+            </LinearLayout>
+            <!-- android:onClick="@{vm.cardClick}"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:gravity="center_vertical"
+                android:onClick="@{vm.cardClick}"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/dp_18"
+                android:paddingStart="@dimen/dp_18"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_pay_card" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_18"
+                    android:layout_weight="1"
+                    android:text="@string/pay_card"
+                    android:textColor="#ff45494b"
+                    android:textSize="@dimen/sp_15" />
+
+                <CheckBox
+                    android:layout_width="@dimen/dp_22"
+                    android:layout_height="@dimen/dp_22"
+                    android:background="@drawable/bg_cb_green"
+                    android:button="@null"
+                    android:checked="@{vm.orderCreateBean.payType==PayTypeEnum.lianlianpay}"
+                    android:clickable="false" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:layout_marginStart="@dimen/dp_67"
+                android:background="#C6C6C6"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginEnd="@dimen/dp_28"
+            android:layout_marginStart="@dimen/dp_28"
+            android:background="@drawable/bg_green_16aa47_radius_22"
+            android:gravity="center"
+            android:onClick="@{vm.payClick}"
+            android:text="@string/top_up_now"
+            android:textColor="#ffffffff"
+            android:textSize="17sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</layout>

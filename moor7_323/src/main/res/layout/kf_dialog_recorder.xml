@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    android:background="@drawable/kf_dialog_loading_bg"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:id="@+id/dialog_recorder_iv_rd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:src="@drawable/kf_recorder"/>
+        <ImageView
+            android:id="@+id/dialog_recorder_iv_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_toRightOf="@id/dialog_recorder_iv_rd"
+            android:src="@drawable/kf_v1"/>
+        <TextView
+            android:id="@+id/dialog_recorder_tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_centerInParent="true"
+            android:textSize="95sp"
+            android:textColor="@color/all_white"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/cancelsend"
+        android:textColor="#ffffff"
+        android:id="@+id/dialog_recorder_tv" />
+
+</LinearLayout>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+    >
+
+    <TextView
+        android:id="@+id/chatting_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="2dp"
+        android:background="@color/lightgrey"
+        android:gravity="center"
+        android:textSize="10sp"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chatting_time_tv"
+        android:layout_marginBottom="4dp">
+
+        <RelativeLayout
+            android:id="@+id/chart_to_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="48dp">
+
+            <ImageView
+                android:id="@+id/chatting_avatar_iv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/kf_head_default_local"/>
+
+            <RelativeLayout
+                android:id="@+id/chatto_content_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/chatting_avatar_iv"
+                >
+
+                <FrameLayout
+                    android:id="@+id/chat_to_layout_img"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/kf_chatto_bg_normal"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/file_icon"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_margin="4dp"
+                                android:src="@drawable/kf_chat_file_icon"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_toRightOf="@id/file_icon"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/chat_content_tv_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="1"
+                                    android:text="xxxxx"
+                                    android:textColor="@color/all_white"
+                                    />
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/chat_content_tv_size"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerVertical="true"
+                                        android:text="xxx"
+                                        android:textColor="@color/all_white"
+                                        />
+
+                                    <TextView
+                                        android:id="@+id/chat_content_tv_status"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:text="ss"
+                                        android:textColor="@color/all_white"
+                                        android:textSize="12sp"
+                                        />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <ProgressBar
+                            android:id="@+id/chat_content_pb_progress"
+                            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                </FrameLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/chatting_state_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/chatto_content_layout"
+                android:background="@drawable/kf_chat_failure_msgs"
+                android:visibility="gone"/>
+
+            <ProgressBar
+                android:id="@+id/uploading_pb"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/chatto_content_layout"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
